@@ -8,4 +8,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="out_of_coverage">"Oops,\nYou dont have internet Connectivity.\nPlease check wifi or data connection</string>
+    <string name="service_not_available">Location is not accessible</string>
+    <string name="invalid_lat_long_used">Invalid location passed to Geocoder</string>
+    <string name="no_address_found">No Address is found for given location</string>
+    <string name="address_found">Address is found for given location</string>
 </resources>
