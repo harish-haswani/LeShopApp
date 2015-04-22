@@ -33,7 +33,7 @@ public class LeLaunch extends ActionBarActivity {
         super.onResume();
         boolean isConnected = false;
         int checkConnectivity = 0;
-        while (checkConnectivity < 10000) {
+        while (checkConnectivity < 1000) {
             isConnected = isConnected();
             if(isConnected)
                 break;
@@ -41,13 +41,15 @@ public class LeLaunch extends ActionBarActivity {
         }
         if (isConnected) {
             Log.e(TAG, "Internet Connectivity is there");
-         //Here code comes for main activity launch
+            Intent intent = new Intent(this, MainPage.class);
+            startActivity(intent);
         }
         else {
             Log.e(TAG, "Internet Connectivity is not there");
             Intent intent = new Intent(this, OutOfCoverage.class);
             startActivity(intent);
         }
+        finish();
     }
 
     private boolean isConnected() {

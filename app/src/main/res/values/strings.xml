@@ -4,8 +4,7 @@
     <string name="content">Your local e-shopping trusted seller\nExpress deliveries/Easy returns</string>
     <string name="loading">Loading...</string>
     <string name="title_activity_out_of_coverage">OutOfCoverage</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main_page">MainPage</string>
     <string name="action_settings">Settings</string>
     <string name="out_of_coverage">"Oops,\nYou dont have internet Connectivity.\nPlease check wifi or data connection</string>
     <string name="service_not_available">Location is not accessible</string>
