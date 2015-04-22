@@ -1,13 +1,15 @@
 package in.leshop.local_e_shop;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class OutOfCoverage extends ActionBarActivity {
+public class OutOfCoverage extends Activity {
 
+    private static final String TAG = "LeShop-OutOfCoverage";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,6 @@
 package in.leshop.local_e_shop;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -14,7 +15,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.ProgressBar;
 
-public class LeLaunch extends ActionBarActivity {
+public class LeLaunch extends Activity {
 
     private String TAG = "LeLaunch";
     @Override

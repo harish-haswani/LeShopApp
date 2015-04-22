@@ -1,6 +1,7 @@
 package in.leshop.local_e_shop;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,9 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainPage extends ActionBarActivity {
+public class MainPage extends Activity {
 
-    private static final String TAG = "LeShop";
+    private static final String TAG = "LeShop-Main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,20 @@ public class MainPage extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_login) {
+            //Login code goes here
+            return true;
+        } else if (id == R.id.action_track_order) {
+            //Login code goes here
+            return true;
+        } else if (id == R.id.action_invite_friends) {
+            //Track order code goes here
+            return true;
+        } else if (id == R.id.action_contact_us) {
+            //Contact us code goes here
+            return true;
+        } else if (id == R.id.action_policies) {
+            //Policies code goes here
             return true;
         }
 

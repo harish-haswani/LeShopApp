@@ -1,6 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context="in.leshop.local_e_shop.MainPage">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+    <item android:id="@+id/action_login" android:title="@string/action_login"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_track_order" android:title="@string/action_track_order"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_invite_friends" android:title="@string/action_invite_friends"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_contact_us" android:title="@string/action_contact_us"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_policies" android:title="@string/action_policies"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
