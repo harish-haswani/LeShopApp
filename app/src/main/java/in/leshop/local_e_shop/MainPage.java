@@ -2,17 +2,22 @@ package in.leshop.local_e_shop;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainPage extends Activity {
 
     private static final String TAG = "LeShop-Main";
-
+    SearchView search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +28,28 @@ public class MainPage extends Activity {
         } else {
             Log.e(TAG, "Action bar is null");
         }
+        search=(SearchView) findViewById(R.id.searchView);
+        search.setIconified(false);
+        int id = search.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+        TextView textView = (TextView) search.findViewById(id);
+        textView.setTextColor(Color.WHITE);
+        search.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                // TODO Auto-generated method stub
+                CharSequence toBeSearched = ((SearchView) v).getQuery();
+                Log.e(TAG, "SerachView Has focus = " + hasFocus);
+                if (!hasFocus) {
+                    Toast.makeText(getBaseContext(), String.valueOf(toBeSearched),
+                            Toast.LENGTH_SHORT).show();
+                    // tobeSearched String will be Queried To Server
+                    // Query Code goes here
+                }
+
+
+            }
+        });
     }
 
 

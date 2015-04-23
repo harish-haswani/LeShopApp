@@ -11,6 +11,7 @@
     <string name="action_invite_friends">Invite Friends</string>
     <string name="action_contact_us">Contact us</string>
     <string name="action_policies">Policies</string>
+    <string name="search_products">Search Products, Brands etc.</string>
     <string name="out_of_coverage">"Oops,\nYou dont have internet Connectivity.\nPlease check wifi or data connection</string>
     <string name="service_not_available">Location is not accessible</string>
     <string name="invalid_lat_long_used">Invalid location passed to Geocoder</string>
