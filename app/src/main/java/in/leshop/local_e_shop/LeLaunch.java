@@ -42,7 +42,7 @@ public class LeLaunch extends Activity {
         }
         if (isConnected) {
             Log.e(TAG, "Internet Connectivity is there");
-            Intent intent = new Intent(this, MainPage.class);
+            Intent intent = new Intent(this, MainPageNavigation.class);
             startActivity(intent);
         }
         else {

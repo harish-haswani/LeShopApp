@@ -17,4 +17,14 @@
     <string name="invalid_lat_long_used">Invalid location passed to Geocoder</string>
     <string name="no_address_found">No Address is found for given location</string>
     <string name="address_found">Address is found for given location</string>
+    <string name="title_activity_main_page_navigation">MainPageNavigation</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
 </resources>
