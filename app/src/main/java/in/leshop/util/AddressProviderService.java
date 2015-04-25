@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.os.ResultReceiver;
 import android.provider.SyncStateContract;
 import android.text.TextUtils;
@@ -30,9 +31,9 @@ public class AddressProviderService extends IntentService {
         super("AddressProviderService");
     }
 
-    private void deliverResultToReceiver(int resultCode, String message) {
+    private void deliverResultToReceiver(int resultCode, Address message) {
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.RESULT_DATA_KEY, message);
+        bundle.putParcelable(Constants.RESULT_DATA_KEY, message);
         mReceiver.send(resultCode, bundle);
     }
 
@@ -74,20 +75,20 @@ public class AddressProviderService extends IntentService {
                     errorMessage = getString(R.string.no_address_found);
                     Log.e(TAG, errorMessage);
                 }
-                deliverResultToReceiver(Constants.FAILURE_RESULT, errorMessage);
+                deliverResultToReceiver(Constants.FAILURE_RESULT, null);
             } else {
                 Address address = addresses.get(0);
-                ArrayList<String> addressFragments = new ArrayList<String>();
+              /*  ArrayList<String> addressFragments = new ArrayList<String>();
 
                 // Fetch the address lines using getAddressLine,
                 // join them, and send them to the thread.
                 for(int i = 0; i < address.getMaxAddressLineIndex(); i++) {
                     addressFragments.add(address.getAddressLine(i));
                 }
+                */
                 Log.i(TAG, getString(R.string.address_found));
                 deliverResultToReceiver(Constants.SUCCESS_RESULT,
-                        TextUtils.join(System.getProperty("line.separator"),
-                                addressFragments));
+                        address);
             }
         }
 
@@ -104,7 +105,7 @@ class AddressResultReceiver extends ResultReceiver {
     }
 
     public interface AddressReceiver {
-        public void onReceiveAddress(int resultCode, String resultData);
+        public void onReceiveAddress(int resultCode, Parcelable resultData);
     }
 
     public void setAddressReceiver(AddressReceiver addressReceiver) {
@@ -115,7 +116,7 @@ class AddressResultReceiver extends ResultReceiver {
     protected void onReceiveResult(int resultCode, Bundle resultData) {
         /* Pass on the result to receiver */
         if(mReceiver != null) {
-            mReceiver.onReceiveAddress(resultCode, resultData.getString(Constants.RESULT_DATA_KEY));
+            mReceiver.onReceiveAddress(resultCode, resultData.getParcelable(Constants.RESULT_DATA_KEY));
         }
 
     }
