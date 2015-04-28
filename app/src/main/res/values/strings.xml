@@ -24,4 +24,22 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Enter your email id</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="pass_details">Show Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="sgn_up"> <u> Sign Up </u></string>
+    <string name="forgot_pass"> <u> Forgot password? </u>  </string>
+    <string name="fac">  Facebook </string>
+    <string name="gog">  Google </string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+
 </resources>

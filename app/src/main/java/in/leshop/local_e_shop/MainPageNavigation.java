@@ -1,6 +1,7 @@
 package in.leshop.local_e_shop;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -136,7 +137,9 @@ public class MainPageNavigation extends ActionBarActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_login) {
             //Login code goes here
-            return true;
+            Intent intent;
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         } else if (id == R.id.action_track_order) {
             //Login code goes here
             return true;
