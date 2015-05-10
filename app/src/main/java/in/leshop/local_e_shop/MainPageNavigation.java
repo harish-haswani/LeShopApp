@@ -1,40 +1,24 @@
 package in.leshop.local_e_shop;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Color;
-import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.LayoutInflater.Factory;
-
 import java.util.ArrayList;
-
 import in.leshop.database.DeliveryAddress;
-import in.leshop.util.AddressProviderService;
-import in.leshop.util.Constants;
-
 import static in.leshop.local_e_shop.LeShopApp.getApplicationInstance;
 
 
@@ -52,6 +36,7 @@ public class MainPageNavigation extends ActionBarActivity
 
     private static final String TAG = "LeShop-MainNavigation";
     SearchView search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +48,9 @@ public class MainPageNavigation extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-        search=(SearchView) findViewById(R.id.searchView1);
+        search = (SearchView) findViewById(R.id.searchView1);
         search.setIconified(false);
-        int id = search.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+        int id = search.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         TextView textView = (TextView) search.findViewById(id);
         textView.setTextColor(Color.WHITE);
         search.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
@@ -99,7 +84,7 @@ public class MainPageNavigation extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-            //Code Goes for Home
+                //Code Goes for Home
                 break;
             case 2:
 
@@ -117,6 +102,7 @@ public class MainPageNavigation extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);*/
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -139,7 +125,9 @@ public class MainPageNavigation extends ActionBarActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_login) {
             //Login code goes here
-            return true;
+            Intent intent;
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         } else if (id == R.id.action_track_order) {
             //Login code goes here
             return true;
@@ -152,8 +140,7 @@ public class MainPageNavigation extends ActionBarActivity
         } else if (id == R.id.action_policies) {
             //Policies code goes here
             return true;
-        }
-        else if(id == R.id.delivery_address) {
+        } else if (id == R.id.delivery_address) {
             //change location code goes here
             Intent intent = new Intent(this, AddDeliveryAddress.class);
             startActivity(intent);
@@ -170,20 +157,19 @@ public class MainPageNavigation extends ActionBarActivity
     }
 
     private void setUpActionBar() {
-        Log.i(TAG,"Setting up Action bar");
+        Log.i(TAG, "Setting up Action bar");
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         ArrayList<String> tags = getApplicationInstance().getAddressDb().getAllTags();
-        if(getApplicationInstance().getUsingCurrentLocation() || ((tags == null) || tags.isEmpty())){
+        if (getApplicationInstance().getUsingCurrentLocation() || ((tags == null) || tags.isEmpty())) {
             actionBar.setTitle(getApplicationInstance().getCurAddress().getSubLocality());
             actionBar.setSubtitle(getApplicationInstance().getCurAddress().getLocality());
-        }
-        else {
+        } else {
             DeliveryAddress addr = getApplicationInstance().getCurDeliveryAddress();
             actionBar.setTitle(addr.getTag());
             actionBar.setSubtitle(addr.getAddress().getLocality());
         }
-        if(actionBar!=null) {
+        if (actionBar != null) {
             actionBar.setIcon(R.mipmap.cart_icon);
         } else {
             Log.e(TAG, "Action bar is null");
