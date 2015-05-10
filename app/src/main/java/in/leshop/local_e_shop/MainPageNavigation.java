@@ -1,4 +1,5 @@
 package in.leshop.local_e_shop;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;

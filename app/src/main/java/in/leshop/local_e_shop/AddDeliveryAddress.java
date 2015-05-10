@@ -49,8 +49,6 @@ public class AddDeliveryAddress extends ActionBarActivity {
         mPhone = (EditText) findViewById(R.id.phoneTB);
         mLabel = (EditText) findViewById(R.id.LabelTB);
         setDefaults();
-        String [] staticSpinnerData = getResources().getStringArray(R.array.address_tags);
-
     }
 
 
@@ -73,6 +71,7 @@ public class AddDeliveryAddress extends ActionBarActivity {
            getApplicationInstance().getAddressDb().insertDeliveryAddress(addr);
            getApplicationInstance().setDeliveryAddress(addr);
            Log.i(TAG,"Saving Address:" + addr.toString());
+           launchMainPage();
        }
        else {
           if(checkFailed.requestFocus()) {
@@ -86,9 +85,7 @@ public class AddDeliveryAddress extends ActionBarActivity {
         //TODO: Again compute current location. For now taking location
         //computed at the time of launching app
         getApplicationInstance().setUsingCurrentLocation(true);
-        Log.i(TAG, "Starting Main Page activity");
-        Intent intent = new Intent(this, MainPageNavigation.class);
-        startActivity(intent);
+        launchMainPage();
     }
 
 
