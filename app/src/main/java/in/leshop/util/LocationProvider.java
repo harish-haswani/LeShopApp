@@ -78,6 +78,7 @@ public class LocationProvider implements
             if (location == null) {
                 LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
             } else {
+                Log.i(TAG,"Sending Location to callback");
                 mLocationCallback.handleNewLocation(location);
             }
 

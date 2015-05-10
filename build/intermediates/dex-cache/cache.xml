@@ -2,32 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/home/bi027/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-0102a925b9fa336a9885ebb1ccf4265446934e20.jar" />
-    </item>
-    <item
-        jar="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/pre-dexed/debug/classes-2adde6eda918a9478ea7a61f3502878f6beb6e4c.jar" />
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\classes-e8ad5a91b61838a79d9e6ca18e3f2ad6ede23c9f.jar" />
     </item>
     <item
-        jar="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\classes-45a13d2b7069411a77222224a322b0f1d45f80db.jar" />
+    </item>
+    <item
+        jar="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-a8d9aebe52856cab5d4ee1f9676a70fb9084f243.jar" />
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-2c2b79690718a97fa984d3a87dd48f9cf3ee9e24.jar" />
     </item>
     <item
-        jar="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jar="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/home/bi027/AndroidStudioProjects/Local-E-Shop/app/build/intermediates/pre-dexed/debug/classes-81305f5c2663a673673a6898013049327ab6bb4b.jar" />
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\classes-a3005af3ef8dc916f541ac9bad5c42a67c8e1cda.jar" />
+    </item>
+    <item
+        jar="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\classes-22dd9bf59d003d8289cd00b7ba60333ad1cf97eb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Mudits\SDK_latest\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-1aa13d61c0ee15901e74bf9ae9082b882095fb02.jar" />
+    </item>
+    <item
+        jar="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
+        <dex dex="C:\Users\Mudits\Documents\GitHub\leShop\LeShopApp\app\build\intermediates\pre-dexed\debug\classes-eb10b19cc5a4158a79ad5e73132c5ea51473565e.jar" />
     </item>
 
 </items>

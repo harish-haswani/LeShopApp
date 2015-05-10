@@ -97,27 +97,3 @@ public class AddressProviderService extends IntentService {
 }
 
 
-class AddressResultReceiver extends ResultReceiver {
-
-    private AddressReceiver mReceiver;
-    public AddressResultReceiver(Handler handler) {
-        super(handler);
-    }
-
-    public interface AddressReceiver {
-        public void onReceiveAddress(int resultCode, Parcelable resultData);
-    }
-
-    public void setAddressReceiver(AddressReceiver addressReceiver) {
-        mReceiver = addressReceiver;
-    }
-
-    @Override
-    protected void onReceiveResult(int resultCode, Bundle resultData) {
-        /* Pass on the result to receiver */
-        if(mReceiver != null) {
-            mReceiver.onReceiveAddress(resultCode, resultData.getParcelable(Constants.RESULT_DATA_KEY));
-        }
-
-    }
-}

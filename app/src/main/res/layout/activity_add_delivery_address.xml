@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="in.leshop.local_e_shop.AddDeliveryAddress"
+    android:id="@+id/Address">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:id="@+id/nameTB"
+        android:layout_weight="1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/houseNoTB"
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:hint="House/Flat No"
+        android:layout_weight="1"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/societyTB"
+        android:ems="10"
+        android:hint="Society"
+        android:layout_weight="1"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/areaTB"
+        android:ems="10"
+        android:hint="Area"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cityTB"
+        android:ems="10"
+        android:hint="City"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/distTB"
+        android:ems="10"
+        android:hint="Dist"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stateTB"
+        android:ems="10"
+        android:hint="State"
+        android:layout_weight="1"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/pincodeTB"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:hint="Pin Code" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/phoneTB"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:hint="Phone" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/LabelTB"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:hint="Label your Address such as Home,Office etc" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save And Continue"
+        android:id="@+id/saveButton"
+        android:onClick="saveButtonClicked"
+        android:layout_weight="1" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Use my current location"
+        android:id="@+id/skipButton"
+        android:onClick="useCurrentLocationButtonClicked"
+        android:layout_weight="1" />
+
+
+
+</LinearLayout>
