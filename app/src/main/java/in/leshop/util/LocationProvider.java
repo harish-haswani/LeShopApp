@@ -120,6 +120,7 @@ public class LocationProvider implements
              * user with the error.
              */
             Log.i(TAG, "Location services connection failed with code " + connectionResult.getErrorCode());
+            mLocationCallback.handleNewLocation(null);
         }
     }
 

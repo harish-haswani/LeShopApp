@@ -61,6 +61,9 @@ public class LeLaunch extends Activity implements LocationProvider.LocationCallb
         }
         if (isConnected) {
             Log.e(TAG, "Internet Connectivity is there");
+            Toast.makeText(this,"Fetching current location",Toast.LENGTH_SHORT).show();
+            mLocationProvider.connect();
+            mResultReceiver.setAddressReceiver(this);
             /*Intent intent = new Intent(this, MainPageNavigation.class); */
         }
         else {
@@ -68,9 +71,6 @@ public class LeLaunch extends Activity implements LocationProvider.LocationCallb
             Intent intent = new Intent(this, OutOfCoverage.class);
             startActivity(intent);
         }
-        Toast.makeText(this,"Fetching current location",Toast.LENGTH_SHORT).show();
-        mLocationProvider.connect();
-        mResultReceiver.setAddressReceiver(this);
     }
 
 
@@ -138,10 +138,17 @@ public class LeLaunch extends Activity implements LocationProvider.LocationCallb
     }
 
     private void fetchAddress(Location loc) {
-        Intent intent = new Intent(this, AddressProviderService.class);
-        intent.putExtra(Constants.RECEIVER, mResultReceiver);
-        intent.putExtra(Constants.LOCATION_DATA_EXTRA, loc);
-        Log.i(TAG,"Starting address service");
-        startService(intent);
+        if(loc!=null) {
+            Intent intent = new Intent(this, AddressProviderService.class);
+            intent.putExtra(Constants.RECEIVER, mResultReceiver);
+            intent.putExtra(Constants.LOCATION_DATA_EXTRA, loc);
+            Log.i(TAG, "Starting address service");
+            startService(intent);
+        } else {
+            Log.i(TAG,"Starting No delivery Address Page activity");
+            Toast.makeText(this,"Launching Add address page",Toast.LENGTH_SHORT);
+            Intent intent = new Intent(this, AddDeliveryAddress.class);
+            startActivity(intent);
+        }
     }
 }

@@ -18,9 +18,10 @@
     <string name="address_found">Address is found for given location</string>
     <string name="title_activity_main_page_navigation">MainPageNavigation</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="drawer_title1">Lifestyle</string>
+    <string name="drawer_title2">Home \u0026 Living</string>
+    <string name="drawer_title3">Electronics</string>
+    <string name="drawer_title4">Books \u0026 Entertainment</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

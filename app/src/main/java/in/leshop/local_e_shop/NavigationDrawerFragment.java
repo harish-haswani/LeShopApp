@@ -11,15 +11,21 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -51,7 +57,8 @@ public class NavigationDrawerFragment extends Fragment {
     private ActionBarDrawerToggle mDrawerToggle;
 
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerListView;
+    ExpandableListAdapter mAdapter;
+    private ExpandableListView mDrawerListView;
     private View mFragmentContainerView;
 
     private int mCurrentSelectedPosition = 0;
@@ -89,7 +96,8 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(
+        mAdapter = new MyExpandableListAdapter();
+        mDrawerListView = (ExpandableListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,15 +105,7 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                }));
+        mDrawerListView.setAdapter(mAdapter);
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
@@ -279,5 +279,91 @@ public class NavigationDrawerFragment extends Fragment {
          * Called when an item in the navigation drawer is selected.
          */
         void onNavigationDrawerItemSelected(int position);
+    }
+
+    /* A simple adapter which maintains an ArrayList of photo resource Ids.
+    * Each photo is displayed as an image. This adapter supports clearing the
+    * list of photos and adding a new photo.
+    *
+    */
+    public class MyExpandableListAdapter extends BaseExpandableListAdapter {
+        private String[] groups = {"Section1", "Section2", "Section3", "Section4"};
+        // Sample data set.  children[i] contains the children (String[]) for groups[i].
+
+        private String[][] children = {
+                {"Arnold", "Barry", "Chuck", "David"},
+                {"Ace", "Bandit", "Cha-Cha", "Deuce"},
+                {"Fluffy", "Snuggles"},
+                {"Goldy", "Bubbles"}
+        };
+
+        public Object getChild(int groupPosition, int childPosition) {
+            return children[groupPosition][childPosition];
+        }
+
+        public long getChildId(int groupPosition, int childPosition) {
+            return childPosition;
+        }
+
+        public int getChildrenCount(int groupPosition) {
+            return children[groupPosition].length;
+        }
+
+        public TextView getGenericView() {
+            // Layout parameters for the ExpandableListView
+            for(Integer i=1; i<4; i++)
+            {
+                int id = getResources().getIdentifier("drawer_title" + i.toString(), "string", NavigationDrawerFragment.super.getActivity().getPackageName());
+                String value = id == 0 ? "" : (String) getResources().getText(id);
+                groups[i - 1] = value;
+            }
+
+            AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, 64);
+
+            TextView textView = new TextView(NavigationDrawerFragment.super.getActivity());
+            textView.setLayoutParams(lp);
+            // Center the text vertically
+            textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+            // Set the text starting position
+            textView.setPaddingRelative(36, 0, 0, 0);
+            // Set the text alignment
+            textView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+            return textView;
+        }
+
+        public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
+                                 View convertView, ViewGroup parent) {
+            TextView textView = getGenericView();
+            textView.setText(getChild(groupPosition, childPosition).toString());
+            return textView;
+        }
+
+        public Object getGroup(int groupPosition) {
+            return groups[groupPosition];
+        }
+
+        public int getGroupCount() {
+            return groups.length;
+        }
+
+        public long getGroupId(int groupPosition) {
+            return groupPosition;
+        }
+
+        public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
+                                 ViewGroup parent) {
+            TextView textView = getGenericView();
+            textView.setText(getGroup(groupPosition).toString());
+            return textView;
+        }
+
+        public boolean isChildSelectable(int groupPosition, int childPosition) {
+            return true;
+        }
+
+        public boolean hasStableIds() {
+            return true;
+        }
     }
 }

@@ -61,11 +61,18 @@ public class AddDeliveryAddress extends ActionBarActivity {
            laddr.setAdminArea(String.valueOf(mState.getText()));
            laddr.setLocality(String.valueOf(mCity.getText()));
            laddr.setSubLocality(String.valueOf(mArea.getText()));
-           laddr.setCountryName(mAddr.getCountryName());
+           if(mAddr == null) {
+               laddr.setCountryName("India");
+               laddr.setLatitude(28.57);
+               laddr.setLongitude(77.3);
+           } else {
+               laddr.setCountryName(mAddr.getCountryName());
+               laddr.setLatitude(mAddr.getLatitude());
+               laddr.setLongitude(mAddr.getLongitude());
+           }
            laddr.setPostalCode(String.valueOf(mPinCode.getText()));
            laddr.setFeatureName(String.valueOf(mSociety.getText()));
-           laddr.setLatitude(mAddr.getLatitude());
-           laddr.setLongitude(mAddr.getLongitude());
+
            DeliveryAddress addr = new DeliveryAddress(laddr,String.valueOf(mLabel.getText()),String.valueOf(mName.getText())
                    ,String.valueOf(mHouseNo.getText()),getApplicationInstance().curUser());
            getApplicationInstance().getAddressDb().insertDeliveryAddress(addr);
@@ -145,16 +152,24 @@ public class AddDeliveryAddress extends ActionBarActivity {
 
     private void setDefaults () {
         Address mAddr = getApplicationInstance().getCurAddress();
-        if(mAddr.getSubLocality() != null)
-           mArea.setText(mAddr.getSubLocality());
-        if((mAddr.getFeatureName() != null))
-            mSociety.setText(mAddr.getFeatureName());
-        if(mAddr.getSubAdminArea() != null)
-            mDist.setText(mAddr.getSubAdminArea());
-        mCity.setText(mAddr.getLocality());
-        mState.setText(mAddr.getAdminArea());
-        mPinCode.setText(mAddr.getPostalCode());
-
+        if(mAddr == null) {
+            mArea.setText("");
+            mSociety.setText("");
+            mDist.setText("");
+            mCity.setText("");
+            mState.setText("");
+            mPinCode.setText("");
+        }else {
+            if (mAddr.getSubLocality() != null)
+                mArea.setText(mAddr.getSubLocality());
+            if ((mAddr.getFeatureName() != null))
+                mSociety.setText(mAddr.getFeatureName());
+            if (mAddr.getSubAdminArea() != null)
+                mDist.setText(mAddr.getSubAdminArea());
+            mCity.setText(mAddr.getLocality());
+            mState.setText(mAddr.getAdminArea());
+            mPinCode.setText(mAddr.getPostalCode());
+        }
     }
 
 
